@@ -38,6 +38,11 @@ function update (event){
     if (event.keyCode == 40 && direction != "up") direction = "down";
 }
 
+function Score () {
+    score++;
+    document.getElementById("score").innerHTML = score;
+}
+
 function iniciarJogo(){
     if (snake[0].x > 15 * box && direction =="right") snake[0].x =0;
     if (snake[0].x < 0 && direction =="left") snake[0].x =15 * box;
@@ -68,6 +73,7 @@ function iniciarJogo(){
     } else{
         food.x = Math.floor(Math.random() * 15 + 1) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
+        Score();
     }
 
     let newHead =  {
